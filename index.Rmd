@@ -1,0 +1,85 @@
+---
+title: "A minimal bookdown example"
+author: "Jacob Bellmund"
+site: bookdown::bookdown_site
+documentclass: book
+output:
+  bookdown::gitbook: default
+---
+
+# Workflow
+
+This is a minimal example for a [bookdown](https://bookdown.org/) project to work with R Markdown files.
+
+## Installing bookdown
+If you don't have the [bookdown package](https://cran.r-project.org/web/packages/bookdown/index.html) installed, this should be the first thing you do. To install it, run from the R console:
+```{r, eval=FALSE}
+require("bookdown")  
+library(bookdown)  
+```
+
+## How it works
+
+Make sure to start by opening the **R project file**. This will set R Studio's working directory to be the root directory of the (example) project.  
+
+To render the example book, just run the command below from the R Studio console.
+```{r, eval=FALSE}
+bookdown::render_book()
+```
+
+This will use the file **"_bookdown.yml"** that contains some relevant settings. Bookdown will start with the file **index.Rmd** in the project folder. Crucially, the _bookdown.yml tells bookdown to use all R Markdown files that are in the code directory. They will be used in alphabetical order, so prepending script names with numbers can be a useful way of making sure the chapters appear in the correct order.
+
+The output is written to the docs folder, which you can find in the code directory. Just click **index.html** to get started. 
+
+Your data should be in the data directory.
+
+## Packages
+
+I suggest installing/loading packages in this index file. 
+Add more packages as needed.
+
+```{r}
+if(!require("here")){install.packages("here")}
+library(here)
+
+if(!require("tidyverse")){install.packages("tidyverse")}
+library(tidyverse)
+```
+
+The code above installs (if necessary) and loads the [here package](https://here.r-lib.org/), which is very useful for the project-oriented workflow in R. It uses the top-level directory of the project to easily build paths to files.
+
+What does that mean? The here package will work from the top-level directory, which is the one where your R-project file is located (this is why it is important to load the project file!).
+
+Let's see which one this is:
+```{r}
+here::dr_here()
+```
+
+Now why is this useful? You can use this to very easily build file names to the files in this directory, while the entire project remains easily portable.
+
+For example, let's see which files are hidden in the code directory:
+
+```{r}
+list.files(here::here("code"))
+```
+
+
+## Publishing on GitHub Pages
+
+>These information are from the [bookdown documentation](https://bookdown.org/yihui/bookdown/github.html), so credit goes to [Yihui Xie](http://yihui.org).
+
+GitHub Pages is a convenient and free way to publish your book using the static HTML output generated via bookdown. You need to tell GitHub to not use the Jekyll website builder in this case. To do that you need to include a file called ```.nojekyll``` in the docs folder where the HTML output of this book is stored.
+
+Let's create this file if it doesn't exist yet.
+
+```{r}
+
+if (!file.exists(here("code", "docs", ".nojekyll"))){
+  file.create('.nojekyll')
+}  
+```
+
+If you haven't set up your GitHub repo for the project, now is the time to do it. 
+
+Now to set up your GitPages, go to the GitHub repository’s settings and under ```Pages``` change the ```Master Branch``` and the ```/docs``` folder as the ```Source```. After saving, you will see the URL where your page is served.
+

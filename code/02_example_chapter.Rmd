@@ -1,0 +1,26 @@
+
+# Test Chapter
+
+This is the first chapter. You can treat the chapters as individual R Markdown files. You can write text that explains what is going on in the code and format it using R markdown syntax (Cheat sheet for quick start [here](https://raw.githubusercontent.com/rstudio/cheatsheets/master/rmarkdown.pdf))
+
+Your code goes into code chunks.
+
+```{r}
+a <- 1
+b <- 2
+c <- a + b
+c
+```
+
+And you can print things from your R chunks:
+
+```{r}
+summary(mtcars)
+```
+
+And cool figures via R chunks
+
+```{r}
+ggplot(mtcars, aes(x=cyl, y=mpg, color=gear)) +
+    geom_point()
+```

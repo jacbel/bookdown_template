@@ -1,0 +1,5 @@
+book_filename: "Bookdown Example"
+repo: https://github.com/
+output_dir: "code/docs"
+rmd_subdir: ["code"]
+new_session: no

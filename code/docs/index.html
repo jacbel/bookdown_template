@@ -219,7 +219,7 @@ Add more packages as needed.</p>
 </blockquote>
 <p>GitHub Pages is a convenient and free way to publish your book using the static HTML output generated via bookdown. You need to tell GitHub to not use the Jekyll website builder in this case. To do that you need to include a file called <code>.nojekyll</code> in the docs folder where the HTML output of this book is stored.</p>
 <p>Let’s create this file if it doesn’t exist yet.</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="index.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">&quot;code&quot;</span>, <span class="st">&quot;docs&quot;</span>, <span class="st">&quot;.nojekyll&quot;</span>))){</span>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="index.html#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> (<span class="sc">!</span><span class="fu">file.exists</span>(<span class="fu">here</span>(<span class="st">&quot;docs&quot;</span>, <span class="st">&quot;.nojekyll&quot;</span>))){</span>
 <span id="cb16-2"><a href="index.html#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">file.create</span>(<span class="st">&#39;.nojekyll&#39;</span>)</span>
 <span id="cb16-3"><a href="index.html#cb16-3" aria-hidden="true" tabindex="-1"></a>}  </span></code></pre></div>
 <pre><code>## [1] TRUE</code></pre>

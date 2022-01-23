@@ -74,7 +74,7 @@ Let's create this file if it doesn't exist yet.
 
 ```{r}
 
-if (!file.exists(here("code", "docs", ".nojekyll"))){
+if (!file.exists(here("docs", ".nojekyll"))){
   file.create('.nojekyll')
 }  
 ```
